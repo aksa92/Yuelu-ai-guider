@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>岳麓山 · 与杜牧同行</title>
+<link rel="stylesheet" href="css/styles.css">
+<script>
+window._AMapSecurityConfig = { securityKey: '1a49c46b93d573d4bf79e1208f4b205e' };
+</script>
+</head>
+<body>
+<div id="app">
+  <!-- 顶部栏 -->
+  <header class="app-header">
+    <div class="app-header-left">
+      <span class="app-header-icon">🍁</span>
+      <div>
+        <h1>岳麓山 · 与杜牧同行</h1>
+        <div class="app-header-sub">Yuelu Mountain · AI Guide</div>
+      </div>
+    </div>
+    <div class="app-header-right">
+      <button class="header-btn" @click="resetChat" title="新对话">✚</button>
+    </div>
+  </header>
+
+  <!-- 页面容器 -->
+  <div class="page-container" @touchstart="onTouchStart" @touchend="onTouchEnd">
+    <component :is="currentPage" ref="pageRef"></component>
+  </div>
+
+  <!-- 底部 TabBar -->
+  <tab-bar :current-tab="currentTab" @switch="switchTab"></tab-bar>
+</div>
+
+<!-- Vue 3 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+
+<!-- 高德地图 JS API v2.0 -->
+<script src="https://webapi.amap.com/maps?v=2.0&key=56123c937a9981ce9ba33e67f46ad159"></script>
+<script src="js/map-utils.js"></script>
+
+<!-- 组件 -->
+<script src="js/components/TabBar.js"></script>
+<script src="js/components/HomePage.js?v=3"></script>
+<script src="js/components/ChatPage.js"></script>
+<script src="js/components/ToolsPage.js?v=4"></script>
+
+<!-- 主应用 -->
+<script src="js/app.js"></script>
+</body>
+</html>

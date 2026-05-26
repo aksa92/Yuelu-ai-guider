@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: Yuelu_trip
+  profiles:
+    active: local
